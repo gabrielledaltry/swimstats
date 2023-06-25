@@ -17,5 +17,15 @@ public class App {
         catch (IOException e){
             System.out.println(e.getMessage());
         }
+        finally{
+            if (reader != null){
+                try{
+                    reader.close();
+                }
+                catch(IOException e){
+                    System.out.println(e.getMessage());
+                }
+            }
+        }
     }
 }
