@@ -16,9 +16,13 @@ public class App {
                 String[] parts = line.split(",");
                 SwimTime time = new SwimTime(); 
                 time.Event = parts[0]; 
+                time.Age = parts[3]; 
+                time.Time = parts[1]; 
                 times.add(time);
             }
-            System.out.println(times.size());
+            for (SwimTime t: times){
+                System.out.printf("%s\t\t%s\t\t%s\n", t.Event, t.Time, t.Age);
+            }
         }
         catch (IOException e){
             System.out.println(e.getMessage());
