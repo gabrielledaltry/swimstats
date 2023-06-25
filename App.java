@@ -12,6 +12,8 @@ public class App {
             ArrayList<SwimTime> times = new ArrayList<>();
             reader = new BufferedReader(new FileReader(filePath));
             String line;
+            // Read and discard the header line
+            reader.readLine();
             while ((line = reader.readLine()) != null){
                 String[] parts = line.split(",");
                 SwimTime time = new SwimTime(); 
