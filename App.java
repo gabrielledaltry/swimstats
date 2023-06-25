@@ -1,15 +1,14 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.ReadOnlyFileSystemException;
 import java.util.ArrayList;
 
 public class App {
-    public static void main(String[] args) {
-        String filePath = "times.csv"; 
+    public static ArrayList<SwimTime> ReadSwimTimes(String filePath){
+        ArrayList<SwimTime> times = new ArrayList<>();
         BufferedReader reader = null;
-
         try{
-            ArrayList<SwimTime> times = new ArrayList<>();
             reader = new BufferedReader(new FileReader(filePath));
             String line;
             // Read and discard the header line
@@ -21,9 +20,6 @@ public class App {
                 time.Age = parts[3]; 
                 time.Time = parts[1]; 
                 times.add(time);
-            }
-            for (SwimTime t: times){
-                System.out.printf("%s\t\t%s\t\t%s\n", t.Event, t.Time, t.Age);
             }
         }
         catch (IOException e){
@@ -39,5 +35,14 @@ public class App {
                 }
             }
         }
+        return times; 
+    }
+
+    public static void main(String[] args) {
+        String filePath = "times.csv"; 
+        ArrayList<SwimTime> times = ReadSwimTimes(filePath);
+        for (SwimTime t: times){
+                System.out.printf("%s\t\t%s\t\t%s\n", t.Event, t.Time, t.Age);
+            }
     }
 }
