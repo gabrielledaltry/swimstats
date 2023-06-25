@@ -10,10 +10,8 @@ public class App {
 
         try{
             reader = new BufferedReader(new FileReader(filePath));
-            line = reader.readLine();
-            while (line != null){
+            while ((line = reader.readLine()) != null){
                 System.out.println(line);
-                line = reader.readLine();
             }
         }
         catch (IOException e){
