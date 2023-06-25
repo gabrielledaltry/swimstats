@@ -4,11 +4,12 @@ import java.io.IOException;
 
 public class App {
     public static void main(String[] args) {
+        String filePath = "times.csv"; 
         String line;
         BufferedReader reader = null;
 
         try{
-            reader = new BufferedReader(new FileReader("times.csv"));
+            reader = new BufferedReader(new FileReader(filePath));
             line = reader.readLine();
             while (line != null){
                 System.out.println(line);
