@@ -5,11 +5,11 @@ import java.io.IOException;
 public class App {
     public static void main(String[] args) {
         String filePath = "times.csv"; 
-        String line;
         BufferedReader reader = null;
 
         try{
             reader = new BufferedReader(new FileReader(filePath));
+            String line;
             while ((line = reader.readLine()) != null){
                 System.out.println(line);
             }
