@@ -1,4 +1,4 @@
 public class SwimEventTime {
-    public String Age;
-    public String Time; 
+    public String age;
+    public String time; 
 }

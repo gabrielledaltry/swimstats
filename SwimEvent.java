@@ -1,12 +1,11 @@
-import java.sql.Array;
 import java.util.ArrayList;
 
 public class SwimEvent {
-    public String Name;
-    public ArrayList<SwimEventTime> Times = new ArrayList<>();
+    public String name;
+    public ArrayList<SwimEventTime> times = new ArrayList<>();
 
-    public static ArrayList<SwimEvent> FromSwimTimes(ArrayList<SwimTime> times) {
-        ArrayList<SwimEvent> EventList = new ArrayList<>();
-        return EventList;
+    public static ArrayList<SwimEvent> fromSwimTimes(ArrayList<SwimTime> times) {
+        ArrayList<SwimEvent> eventList = new ArrayList<>();
+        return eventList;
     }
 }

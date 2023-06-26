@@ -4,11 +4,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class SwimTime {
-    public String Event;
-    public String Time;
-    public String Age;
+    public String event;
+    public String time;
+    public String age;
 
-    public static ArrayList<SwimTime> ReadSwimTimes(String filePath){
+    public static ArrayList<SwimTime> readSwimTimes(String filePath){
         ArrayList<SwimTime> times = new ArrayList<>();
         BufferedReader reader = null;
         try{
@@ -19,9 +19,9 @@ public class SwimTime {
             while ((line = reader.readLine()) != null){
                 String[] parts = line.split(",");
                 SwimTime time = new SwimTime(); 
-                time.Event = parts[0]; 
-                time.Age = parts[3]; 
-                time.Time = parts[1]; 
+                time.event = parts[0]; 
+                time.age = parts[3]; 
+                time.time = parts[1]; 
                 times.add(time);
             }
         }
