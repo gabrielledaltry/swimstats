@@ -1,3 +1,4 @@
+import java.sql.Array;
 import java.util.ArrayList;
 
 public class SwimEvent {
@@ -5,6 +6,7 @@ public class SwimEvent {
     public ArrayList<SwimEventTime> Times = new ArrayList<>();
 
     public static ArrayList<SwimEvent> FromSwimTimes(ArrayList<SwimTime> times) {
-        return null;
+        ArrayList<SwimEvent> EventList = new ArrayList<>();
+        return EventList;
     }
 }
