@@ -7,6 +7,7 @@ public class SwimTime {
     public String event;
     public String time;
     public String age;
+    public String meet; 
 
     public static ArrayList<SwimTime> readSwimTimes(String filePath){
         ArrayList<SwimTime> times = new ArrayList<>();
@@ -22,6 +23,7 @@ public class SwimTime {
                 time.event = parts[0]; 
                 time.age = parts[3]; 
                 time.time = parts[1]; 
+                time.meet = parts[6]; 
                 times.add(time);
             }
         }
