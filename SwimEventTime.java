@@ -3,20 +3,19 @@ public class SwimEventTime {
     public String time;
 
     public int timeInMilliseconds() {
-        String[] parts = time.split(":");
+        String[] timeParts = time.split(":");
         int minutes = 0; 
-        if (parts.length > 1){
-            minutes = Integer.parseInt(parts[0]);
+        String secondsAndMilliseconds; 
+        if (timeParts.length > 1){
+            minutes = Integer.parseInt(timeParts[0]);
+            secondsAndMilliseconds = timeParts[1];
         }
-        String[] secondsAndMilliseconds; 
-        if (parts.length == 1){
-            secondsAndMilliseconds = parts[0].split("\\.");
+        else {
+            secondsAndMilliseconds = timeParts[0];
         }
-        else{
-            secondsAndMilliseconds = parts[1].split("\\.");
-        }
-        int seconds = Integer.parseInt(secondsAndMilliseconds[0]);
-        int milliseconds = Integer.parseInt(secondsAndMilliseconds[1]);
+        String[] secondsAndMillisecondsParts = secondsAndMilliseconds.split("\\.");
+        int seconds = Integer.parseInt(secondsAndMillisecondsParts[0]);
+        int milliseconds = Integer.parseInt(secondsAndMillisecondsParts[1]);
 
         // Convert the time components into a single value (milliseconds)
         int totalTimeInMilliseconds = (minutes * 60 * 1000) + (seconds * 1000) + milliseconds;
