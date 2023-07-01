@@ -1,7 +1,5 @@
-
 import static org.junit.Assert.*;
 import org.junit.Test;
-
 
 public class SwimEventTimeTest {
     @Test
@@ -17,6 +15,19 @@ public class SwimEventTimeTest {
         t.time = "25.14";
         int actual = t.timeInMilliseconds(); 
         assertEquals(25014, actual); 
-
+    }
+    @Test
+    public void testMinute(){
+        SwimEventTime t = new SwimEventTime(); 
+        t.time = "1:00.00"; 
+        int actual = t.timeInMilliseconds(); 
+        assertEquals(60000, actual);
+    }
+    @Test
+    public void testOverMinute(){
+        SwimEventTime t = new SwimEventTime(); 
+        t.time = "1:01.35"; 
+        int actual = t.timeInMilliseconds(); 
+        assertEquals(61035, actual);
     }
 }
