@@ -11,4 +11,12 @@ public class SwimEventTimeTest {
         int actual = t.timeInMilliseconds(); 
         assertEquals(0, actual);  
     }
+    @Test
+    public void testSubMinute(){
+        SwimEventTime t = new SwimEventTime(); 
+        t.time = "25.14";
+        int actual = t.timeInMilliseconds(); 
+        assertEquals(25014, actual); 
+
+    }
 }
