@@ -1,7 +1,8 @@
 package tests;
 import static org.junit.Assert.*;
 import org.junit.Test;
-import app.SwimEventTime;
+
+import swimstats.SwimEventTime;
 
 public class SwimEventTimeTest {
     @Test

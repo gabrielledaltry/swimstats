@@ -1,4 +1,4 @@
-package app;
+package swimstats;
 public class SwimEventTime {
     public String age;
     public String time;

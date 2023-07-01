@@ -1,4 +1,4 @@
-package app;
+package swimstats;
 import java.util.ArrayList;
 
 public class SwimEvent {
