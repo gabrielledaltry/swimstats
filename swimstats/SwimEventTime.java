@@ -1,12 +1,12 @@
 package swimstats;
 public class SwimEventTime {
-    public String age;
+    public int age;
     public String time;
 
     public SwimEventTime(){}
-    
+
     public SwimEventTime (String age, String time){
-        this.age = age;
+        this.age = Integer.parseInt(age);
         this.time = time; 
     }
 

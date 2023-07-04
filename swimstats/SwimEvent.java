@@ -17,7 +17,7 @@ public class SwimEvent {
                 if (t.timeInMilliseconds() < fastest.timeInMilliseconds()) {
                     fastest = t;
                 }
-                else if (fastest.timeInMilliseconds() == t.timeInMilliseconds() && Integer.parseInt(fastest.age) > Integer.parseInt(t.age)){
+                else if (fastest.timeInMilliseconds() == t.timeInMilliseconds() && fastest.age > t.age){
                     fastest = t; 
                 }
             }

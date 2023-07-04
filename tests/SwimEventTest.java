@@ -31,7 +31,7 @@ public class SwimEventTest {
         SwimEventTime fastest = event.fastestTime(); 
         assertNotNull(fastest);
         assertEquals("1:00.03", fastest.time);
-        assertEquals("12", fastest.age); 
+        assertEquals(12, fastest.age); 
     }
 
     @Test
