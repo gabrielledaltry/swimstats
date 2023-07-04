@@ -3,6 +3,13 @@ public class SwimEventTime {
     public String age;
     public String time;
 
+    public SwimEventTime(){}
+    
+    public SwimEventTime (String age, String time){
+        this.age = age;
+        this.time = time; 
+    }
+
     public int timeInMilliseconds() {
         String[] timeParts = time.split(":");
         int minutes = 0; 
