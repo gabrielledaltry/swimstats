@@ -64,4 +64,14 @@ public class SwimEventTest {
         assertNotNull(fastest); 
         assertEquals(event.times.get(1), fastest); 
     }
-}
+
+    @Test
+    public void testMultipleFastestShouldReturnYoungest(){
+        SwimEvent event = new SwimEvent(); 
+        event.times.add(new SwimEventTime("14", "59.98"));
+        event.times.add(new SwimEventTime("12", "59.98"));
+        SwimEventTime fastest = event.fastestTime(); 
+        assertNotNull(fastest); 
+        assertEquals(event.times.get(1), fastest); 
+    }
+}   
