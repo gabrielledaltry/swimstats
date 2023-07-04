@@ -12,12 +12,15 @@ public class SwimEvent {
         for (SwimEventTime t : times) {
             if (fastest == null) {
                 fastest = t;
-            } else {
+            } 
+            else {
+                int tInMil = t.timeInMilliseconds(); 
+                int fastestInMil = fastest.timeInMilliseconds();
                 // if the event is faster (smaller) than temp, replace temp
-                if (t.timeInMilliseconds() < fastest.timeInMilliseconds()) {
+                if (tInMil < fastestInMil) {
                     fastest = t;
                 }
-                else if (fastest.timeInMilliseconds() == t.timeInMilliseconds() && fastest.age > t.age){
+                else if (fastestInMil == tInMil && fastest.age > t.age){
                     fastest = t; 
                 }
             }
