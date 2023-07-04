@@ -21,6 +21,15 @@ public class SwimEventTest {
         event.times.add(new SwimEventTime("12", "1:00.03"));
         SwimEventTime fastest = event.fastestTime(); 
         assertNotNull(fastest);
+        assertEquals(event.times.get(0), fastest);
+    }
+
+    @Test
+    public void testOneTimeValues(){
+        SwimEvent event = new SwimEvent(); 
+        event.times.add(new SwimEventTime("12", "1:00.03"));
+        SwimEventTime fastest = event.fastestTime(); 
+        assertNotNull(fastest);
         assertEquals("1:00.03", fastest.time);
         assertEquals("12", fastest.age); 
     }
