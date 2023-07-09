@@ -4,6 +4,7 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
+import java.sql.Array;
 import java.util.ArrayList;
 
 import org.junit.Test;
@@ -93,5 +94,15 @@ public class SwimEventTest {
         times.add(t);
         ArrayList<SwimEvent> events = SwimEvent.swimTimesToEvents(times);
         assertEquals(1, events.size()); 
+    }
+
+    @Test
+    public void testTwoSwimTimesThenOneSwimEvent(){
+        ArrayList<SwimTime> times = new ArrayList<SwimTime>();
+        times.add(new SwimTime("50 free", "26.43", "14", "Fall Classic"));
+        times.add(new SwimTime("50 free", "25.99", "15", "Spring Classic"));
+        ArrayList<SwimEvent> events = SwimEvent.swimTimesToEvents(times);
+        assertEquals(1, events.size()); 
+        assertEquals(2, events.get(0).times.size()); 
     }
 }   

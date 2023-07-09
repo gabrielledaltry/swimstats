@@ -47,6 +47,7 @@ public class SwimEvent {
             if (found == null){
                 // then create a new event with that name
                 found = new SwimEvent(); 
+                found.name = s.event; 
                 events.add(found);
             }
             // add the time to the event
