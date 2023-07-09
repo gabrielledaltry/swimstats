@@ -7,11 +7,13 @@ public class App {
         String filePath = "times.csv"; 
         ArrayList<SwimTime> times = SwimTime.readSwimTimes(filePath);
 
-        // TODO: convert from swim times to swim events with swim event times
-        // ...
+        // convert from swim times to swim events 
+        ArrayList<SwimEvent> events = SwimEvent.swimTimesToEvents(times);
 
-        for(SwimTime t: times){
-            System.out.println(t.meet);
+        for(SwimEvent e: events){
+            System.out.print(e.name+"\t");
+            SwimEventTime fastest = e.fastestTime();
+            System.out.printf("%s\t %s\n", fastest.time, fastest.age);
         }
     }
 }
