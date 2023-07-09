@@ -1,14 +1,27 @@
+package swimstats;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class SwimTime {
-    public String Event;
-    public String Time;
-    public String Age;
+    public String event;
+    public String time;
+    public String age;
+    public String meet; 
+    public String date; 
 
-    public static ArrayList<SwimTime> ReadSwimTimes(String filePath){
+    public SwimTime(){}
+
+    public SwimTime(String event, String time, String age, String meet, String date){
+        this.event = event; 
+        this.time = time;
+        this.age = age;
+        this.meet = meet; 
+        this.date = date; 
+    }
+
+    public static ArrayList<SwimTime> readSwimTimes(String filePath){
         ArrayList<SwimTime> times = new ArrayList<>();
         BufferedReader reader = null;
         try{
@@ -19,9 +32,11 @@ public class SwimTime {
             while ((line = reader.readLine()) != null){
                 String[] parts = line.split(",");
                 SwimTime time = new SwimTime(); 
-                time.Event = parts[0]; 
-                time.Age = parts[3]; 
-                time.Time = parts[1]; 
+                time.event = parts[0]; 
+                time.age = parts[3]; 
+                time.time = parts[1]; 
+                time.meet = parts[6]; 
+                time.date = parts[9];
                 times.add(time);
             }
         }

@@ -2,7 +2,7 @@ OUT_DIR := bin
 
 .PHONY: build
 build:
-	javac -d $(OUT_DIR) ./*.java 
+	javac -d $(OUT_DIR) swimstats/*.java 
 
 .PHONY: clean
 clean:
@@ -10,4 +10,4 @@ clean:
 
 .PHONY: run
 run: build
-	java -cp $(OUT_DIR) App
+	java -cp $(OUT_DIR) swimstats.App
