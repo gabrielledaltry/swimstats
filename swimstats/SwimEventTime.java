@@ -2,12 +2,16 @@ package swimstats;
 public class SwimEventTime {
     public int age;
     public String time;
+    public String date;
+    public String meet;
 
     public SwimEventTime(){}
 
-    public SwimEventTime (String age, String time){
+    public SwimEventTime (String age, String time, String date, String meet){
         this.age = Integer.parseInt(age);
         this.time = time; 
+        this.date = date;
+        this.meet = meet; 
     }
 
     public int timeInMilliseconds() {

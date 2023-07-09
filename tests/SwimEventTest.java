@@ -23,7 +23,7 @@ public class SwimEventTest {
     @Test
     public void testOneTime(){
         SwimEvent event = new SwimEvent(); 
-        event.times.add(new SwimEventTime("12", "1:00.03"));
+        event.times.add(new SwimEventTime("12", "1:00.03", "12/11/22", "Winter Classic"));
         SwimEventTime fastest = event.fastestTime(); 
         assertNotNull(fastest);
         assertEquals(event.times.get(0), fastest);
@@ -32,7 +32,7 @@ public class SwimEventTest {
     @Test
     public void testOneTimeValues(){
         SwimEvent event = new SwimEvent(); 
-        event.times.add(new SwimEventTime("12", "1:00.03"));
+        event.times.add(new SwimEventTime("12", "1:00.03", "12/11/22", "Winter Classic"));
         SwimEventTime fastest = event.fastestTime(); 
         assertNotNull(fastest);
         assertEquals("1:00.03", fastest.time);
@@ -42,8 +42,8 @@ public class SwimEventTest {
     @Test
     public void testFirstFastest(){
         SwimEvent event = new SwimEvent(); 
-        event.times.add(new SwimEventTime("14", "59.98"));
-        event.times.add(new SwimEventTime("12", "1:00.05"));
+        event.times.add(new SwimEventTime("14", "59.98", "12/11/22", "Winter Classic"));
+        event.times.add(new SwimEventTime("12", "1:00.05", "12/11/22", "Winter Classic"));
         SwimEventTime fastest = event.fastestTime(); 
         assertNotNull(fastest); 
         assertEquals(event.times.get(0), fastest); 
@@ -52,8 +52,8 @@ public class SwimEventTest {
     @Test
     public void testLastFastest(){
         SwimEvent event = new SwimEvent(); 
-        event.times.add(new SwimEventTime("14", "59.98"));
-        event.times.add(new SwimEventTime("16", "56.98"));
+        event.times.add(new SwimEventTime("14", "59.98", "12/11/22", "Winter Classic"));
+        event.times.add(new SwimEventTime("16", "56.98", "12/11/21", "Winter Classic"));
         SwimEventTime fastest = event.fastestTime(); 
         assertNotNull(fastest); 
         assertEquals(event.times.get(1), fastest); 
@@ -62,9 +62,9 @@ public class SwimEventTest {
     @Test
     public void testMiddleFastest(){
         SwimEvent event = new SwimEvent(); 
-        event.times.add(new SwimEventTime("14", "59.98"));
-        event.times.add(new SwimEventTime("14", "56.00"));
-        event.times.add(new SwimEventTime("13", "58.00"));
+        event.times.add(new SwimEventTime("14", "59.98", "12/11/21", "Winter Classic"));
+        event.times.add(new SwimEventTime("14", "56.00", "12/11/20", "Winter Classic"));
+        event.times.add(new SwimEventTime("13", "58.00", "12/11/22", "Winter Classic"));
         SwimEventTime fastest = event.fastestTime(); 
         assertNotNull(fastest); 
         assertEquals(event.times.get(1), fastest); 
@@ -73,8 +73,8 @@ public class SwimEventTest {
     @Test
     public void testMultipleFastestShouldReturnYoungest(){
         SwimEvent event = new SwimEvent(); 
-        event.times.add(new SwimEventTime("14", "59.98"));
-        event.times.add(new SwimEventTime("12", "59.98"));
+        event.times.add(new SwimEventTime("14", "59.98", "12/11/22", "Winter Classic"));
+        event.times.add(new SwimEventTime("12", "59.98", "12/11/20", "Winter Classic"));
         SwimEventTime fastest = event.fastestTime(); 
         assertNotNull(fastest); 
         assertEquals(event.times.get(1), fastest); 
@@ -90,7 +90,7 @@ public class SwimEventTest {
     @Test
     public void testOneSwimTimeThenOneSwimEvent(){
         ArrayList<SwimTime> times = new ArrayList<SwimTime>();
-        SwimTime t = new SwimTime("100 free", "57.84", "15", "Winter Meet");
+        SwimTime t = new SwimTime("100 free", "57.84", "15", "Winter Meet", "12/12/20");
         times.add(t);
         ArrayList<SwimEvent> events = SwimEvent.swimTimesToEvents(times);
         assertEquals(1, events.size()); 
@@ -99,8 +99,8 @@ public class SwimEventTest {
     @Test
     public void testTwoSwimTimesThenOneSwimEvent(){
         ArrayList<SwimTime> times = new ArrayList<SwimTime>();
-        times.add(new SwimTime("50 free", "26.43", "14", "Fall Classic"));
-        times.add(new SwimTime("50 free", "25.99", "15", "Spring Classic"));
+        times.add(new SwimTime("50 free", "26.43", "14", "Fall Classic", "12/12/20"));
+        times.add(new SwimTime("50 free", "25.99", "15", "Spring Classic", "12/12/22"));
         ArrayList<SwimEvent> events = SwimEvent.swimTimesToEvents(times);
         assertEquals(1, events.size()); 
         assertEquals(2, events.get(0).times.size()); 
@@ -109,8 +109,8 @@ public class SwimEventTest {
     @Test
     public void testTwoEvents(){
         ArrayList<SwimTime> times = new ArrayList<SwimTime>();
-        times.add(new SwimTime("50 free", "26.43", "14", "Fall Classic"));
-        times.add(new SwimTime("100 free", "55.89", "15", "Spring Classic"));
+        times.add(new SwimTime("50 free", "26.43", "14", "Fall Classic", "12/12/20"));
+        times.add(new SwimTime("100 free", "55.89", "15", "Spring Classic", "11/12/20"));
         ArrayList<SwimEvent> events = SwimEvent.swimTimesToEvents(times);
         assertEquals(2, events.size()); 
         assertEquals(1, events.get(0).times.size()); 

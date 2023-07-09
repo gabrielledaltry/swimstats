@@ -9,14 +9,16 @@ public class SwimTime {
     public String time;
     public String age;
     public String meet; 
+    public String date; 
 
     public SwimTime(){}
 
-    public SwimTime(String event, String time, String age, String meet){
+    public SwimTime(String event, String time, String age, String meet, String date){
         this.event = event; 
         this.time = time;
         this.age = age;
         this.meet = meet; 
+        this.date = date; 
     }
 
     public static ArrayList<SwimTime> readSwimTimes(String filePath){
@@ -34,6 +36,7 @@ public class SwimTime {
                 time.age = parts[3]; 
                 time.time = parts[1]; 
                 time.meet = parts[6]; 
+                time.date = parts[9];
                 times.add(time);
             }
         }

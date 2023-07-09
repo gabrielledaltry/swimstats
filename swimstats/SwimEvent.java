@@ -51,7 +51,7 @@ public class SwimEvent {
                 events.add(found);
             }
             // add the time to the event
-            found.times.add(new SwimEventTime(s.age, s.time));
+            found.times.add(new SwimEventTime(s.age, s.time, s.date, s.meet));
         }
         return events;  
     }

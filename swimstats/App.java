@@ -13,7 +13,7 @@ public class App {
         for(SwimEvent e: events){
             System.out.print(e.name+"\t");
             SwimEventTime fastest = e.fastestTime();
-            System.out.printf("%s\t %s\n", fastest.time, fastest.age);
+            System.out.printf("%s\t %s\t %s\t %s\n", fastest.time, fastest.age, fastest.date, fastest.meet);
         }
     }
 }
