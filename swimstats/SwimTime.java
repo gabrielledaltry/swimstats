@@ -10,6 +10,15 @@ public class SwimTime {
     public String age;
     public String meet; 
 
+    public SwimTime(){}
+
+    public SwimTime(String event, String time, String age, String meet){
+        this.event = event; 
+        this.time = time;
+        this.age = age;
+        this.meet = meet; 
+    }
+
     public static ArrayList<SwimTime> readSwimTimes(String filePath){
         ArrayList<SwimTime> times = new ArrayList<>();
         BufferedReader reader = null;

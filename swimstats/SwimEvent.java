@@ -31,6 +31,27 @@ public class SwimEvent {
 
     public static ArrayList<SwimEvent> swimTimesToEvents(ArrayList<SwimTime> times){
         ArrayList<SwimEvent> events = new ArrayList<SwimEvent>(); 
+        // take a list of swim events and turn them into a list of swim times
+        // for each time 
+        for(SwimTime s: times){
+            SwimEvent found = null; 
+            // try to get the event
+            for(SwimEvent e: events){
+                if(e.name.equals(s.event))
+                {
+                    found = e; 
+                    break; 
+                }
+            }
+            // if no event was found
+            if (found == null){
+                // then create a new event with that name
+                found = new SwimEvent(); 
+                events.add(found);
+            }
+            // add the time to the event
+            found.times.add(new SwimEventTime(s.age, s.time));
+        }
         return events;  
     }
 }
