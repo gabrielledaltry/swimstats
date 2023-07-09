@@ -105,4 +105,15 @@ public class SwimEventTest {
         assertEquals(1, events.size()); 
         assertEquals(2, events.get(0).times.size()); 
     }
+
+    @Test
+    public void testTwoEvents(){
+        ArrayList<SwimTime> times = new ArrayList<SwimTime>();
+        times.add(new SwimTime("50 free", "26.43", "14", "Fall Classic"));
+        times.add(new SwimTime("100 free", "55.89", "15", "Spring Classic"));
+        ArrayList<SwimEvent> events = SwimEvent.swimTimesToEvents(times);
+        assertEquals(2, events.size()); 
+        assertEquals(1, events.get(0).times.size()); 
+        assertEquals(1, events.get(1).times.size()); 
+    }
 }   
