@@ -28,4 +28,9 @@ public class SwimEvent {
         // return temp to find the fastest time
         return fastest;
     }
+
+    public static ArrayList<SwimEvent> swimTimesToEvents(ArrayList<SwimTime> times){
+        ArrayList<SwimEvent> events = new ArrayList<SwimEvent>(); 
+        return events;  
+    }
 }

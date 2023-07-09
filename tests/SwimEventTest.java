@@ -2,10 +2,14 @@ package tests;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+
+import java.util.ArrayList;
 
 import org.junit.Test;
 import swimstats.SwimEvent;
 import swimstats.SwimEventTime; 
+import swimstats.SwimTime; 
 
 public class SwimEventTest {
     @Test
@@ -73,5 +77,12 @@ public class SwimEventTest {
         SwimEventTime fastest = event.fastestTime(); 
         assertNotNull(fastest); 
         assertEquals(event.times.get(1), fastest); 
+    }
+
+    @Test
+    public void testNoSwimTimesThenNoSwimEvents(){
+        ArrayList<SwimTime> times = new ArrayList<SwimTime>(); 
+        ArrayList<SwimEvent> events = SwimEvent.swimTimesToEvents(times); 
+        assertEquals(events.size(), 0);
     }
 }   
